@@ -1,0 +1,22 @@
+
+	<% if @consulta.present? %>
+	<% @posts.each do |post| %>
+	<tr id="<%= post.id%>">
+		<td><%= post.title %></td>
+		<td><%=image_tag post.image, style:'max-width: 200px;' %></td>
+		<td>
+			<%#= link_to 'Edit', edit_post_path(post) %>
+			<%= link_to 'Eliminar', post, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'btn btn-danger' %>
+		</td>
+	</tr>
+	<% end %>
+	<%else %>
+	<tr id="<%= post.id%>">
+		<td><%= post.title %></td>
+		<td><%=image_tag post.image, style:'max-width: 100px;' %></td>
+		<td>
+			<%#= link_to 'Edit', edit_post_path(post) %>
+			<%= link_to 'Eliminar', post, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'btn btn-danger' %>
+		</td>
+	</tr>
+	<% end %>
